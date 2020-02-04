@@ -1,0 +1,8 @@
+#!/bin/bash
+# Tommy Margolis
+# Add #include <openssl/bn.h> to all .c and .h files that contain #include <openssl/rsa.h>
+files=$(ls -l | grep -l -w "#include <openssl/rsa.h>" *.c *.h) 
+for f in $files
+do
+  echo "#include <openssl/bn.h>" >> $f
+done
